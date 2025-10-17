@@ -4,7 +4,6 @@ Temp/
 .vscode/
 Logs/
 Usersettings/
-Packages/
 *.sln
 *.csproj
 *.userprefs
