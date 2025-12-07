@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -10,9 +11,14 @@ public class BuildManager : MonoBehaviour
     public Turretdata LaserTurretData;
 
     public Turretdata selectedTurretData;
+    public TextMeshProUGUI MoneyText;
+    private Animator moneyTextAnimator;
+    private int money = 1000;
+
     private void Awake()
     {
         Instance = this;
+        moneyTextAnimator = MoneyText.GetComponent<Animator>();
     }
     public void OnStandardSlelcted(bool isOn)
     {
@@ -34,5 +40,28 @@ public class BuildManager : MonoBehaviour
         {
             selectedTurretData = LaserTurretData;
         }
+    }
+
+    public bool IsEnough(int need)
+    {
+        if (need <= money)
+        {
+            return true;
+        }
+        else
+        {
+            MoneyFlicker();
+            return false;
+        }
+            //return need <= money;
+    }
+    public void ChangeMoney(int value)
+    {
+        this.money += value;
+        MoneyText.text = "Total Money:\n"+money.ToString();
+    }
+    private void MoneyFlicker()
+    {
+        moneyTextAnimator.SetTrigger("MoneyLack");
     }
 }
