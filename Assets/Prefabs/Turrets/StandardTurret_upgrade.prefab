@@ -247,9 +247,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList: []
   attackRate: 1
-  bulletPrefab: {fileID: 72054502412165200, guid: 7913120f35eb59d4d9d5d0439c323688, type: 3}
-  BulletPosition: {fileID: 0}
-  nextAttackTime: 0
+  bulletPrefab: {fileID: 72054502412165200, guid: 9f4309287c6a99d43b5f303362dc3960, type: 3}
+  BulletPosition: {fileID: 3886760668520649464}
+  nextAttackTime: 0.7
 --- !u!1 &2454954305052357255
 GameObject:
   m_ObjectHideFlags: 0

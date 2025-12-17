@@ -15,6 +15,8 @@ public class BuildManager : MonoBehaviour
     private Animator moneyTextAnimator;
     private int money = 1000;
 
+    public UpGradeUI upgradeUI;
+    private MapCube upgradeCube;
     private void Awake()
     {
         Instance = this;
@@ -63,5 +65,24 @@ public class BuildManager : MonoBehaviour
     private void MoneyFlicker()
     {
         moneyTextAnimator.SetTrigger("MoneyLack");
+    }
+    public void ShowUpgradeUI(MapCube cube,Vector3 position,bool isDisableUpgrade)
+    {
+        upgradeCube = cube;
+        upgradeUI.Show(position, isDisableUpgrade);
+    }
+    public void HideUpgradeUI()
+    {
+        upgradeUI.Hide();
+    }
+    public void OnUpgrade()
+    {
+        upgradeCube?.OnUpgrade();
+        HideUpgradeUI();
+    }
+    public void OnTurretDestroy()
+    {
+        upgradeCube?.OnTurretDestroy();
+        HideUpgradeUI();
     }
 }
